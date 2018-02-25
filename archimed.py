@@ -56,7 +56,9 @@ class Archimed(object):
     def do_append(self, logic):
         try:
             number = int(logic)
-            return [number]
+            if number in self.datalist:
+              return [number]
+            else: return None
         except:
             return None
     def do_logic(self, logic):
@@ -106,7 +108,7 @@ if __name__=="__main__":
     print "Or just combine them like '1,2,3,4,6-8,>10' or whatever like you want"
     print "\nLive Demo."
     while 1:
-        logics = raw_input("Type the logic\n")
+        logics = raw_input("Type the logic\n>>> ")
         selection = archimed( logics , the_list )
         print selection.parse()
         print ""
